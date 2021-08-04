@@ -5,6 +5,8 @@
  */
 package BooksManagementSystem;
 
+import java.awt.print.Book;
+
 /**
  *
  * @author mac
@@ -15,7 +17,8 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+    Program program = new Program();
+    program.run();
     }
     
 }
