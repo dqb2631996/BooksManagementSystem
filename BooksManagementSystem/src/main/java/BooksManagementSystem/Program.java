@@ -5,6 +5,7 @@
  */
 package BooksManagementSystem;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -13,7 +14,8 @@ import java.util.Scanner;
  */
 public class Program {
 
-    Book arrayList[] = {};
+//    Book arrayList[] = {};
+    ArrayList< Book> ds = new ArrayList<Book>();
 
     // câu 3.
     public void menu() {
@@ -22,15 +24,15 @@ public class Program {
         System.out.println("3. Average Price");
         System.out.println("4. Exit");
     }
-
+    
     public void insertNewBook() {
         //4
         Scanner sc = new Scanner(System.in);
         Book book = new Book();
-        Book newarrayList[] = new Book[arrayList.length + 1];
-        for (int i = 0; i < arrayList.length; i++) {
-            newarrayList[i] = arrayList[i];
-        }
+//        Book newarrayList[] = new Book[arrayList.length + 1];
+//        for (int i = 0; i < arrayList.length; i++) {
+//            newarrayList[i] = arrayList[i];
+//        }
         System.out.println("nhap name");
         book.name = sc.nextLine();
         
@@ -45,7 +47,7 @@ public class Program {
         
         System.out.println("Nhap vao 5 danh gia :");
 //        Book b = new Book();
-        
+        book.id ++;
         System.out.println("notable 1:");
         book.priceList[0] = sc.nextInt();
         System.out.println("notable 2:");
@@ -56,12 +58,12 @@ public class Program {
         book.priceList[3] = sc.nextInt();
         System.out.println("notable 5:");
         book.priceList[4] = sc.nextInt();
- 
-//        book.priceList = notable1
-        newarrayList[arrayList.length] = book;
-        arrayList = newarrayList;
-        }
 
+//        newarrayList[arrayList.length] = book;
+//        arrayList = newarrayList;
+        ds.add(book);
+    }
+    
     public void run() {
         while (true) {
             Scanner sc = new Scanner(System.in);
@@ -71,7 +73,6 @@ public class Program {
             if (nhap == 1) {
                 insertNewBook();
                 int a = 0;
-                System.out.println(a = arrayList.length);
             } else if (nhap == 2) {
 //                Book book = new Book();
 //                book.display();
@@ -80,14 +81,14 @@ public class Program {
 //                arrayList[2].display();
 //                arrayList[3].display();
 //                arrayList[400].display();
-                for (Book book : arrayList) {
+                for (Book book : ds) {
                     book.display();
                 }
             } else if (nhap == 3) {
 //                System.out.println("Danh Gia Trung Binh : " + book.averagePrice);
 //                book.display();
 
-                for (Book book : arrayList) {
+                for (Book book : ds) {
                     book.calculate();
                     book.display();
                 }
@@ -97,7 +98,7 @@ public class Program {
                 System.out.println("nhập sai thao tác");
             }
         }
-
+        
     }
-
+    
 }
